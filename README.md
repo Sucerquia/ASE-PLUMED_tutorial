@@ -16,12 +16,14 @@ run and visualize atomistic simulations. It is interfaced with some [other codes
 which use quantum or classical methods. In other words, this tutorial shows how to connect PLUMED to
 all the other codes interfaced in ASE.
 
-Plumed, in the other hand, allows several actions besides of what we show here. For further description of plumed details, visit [plumed web page](http://www.plumed.org/doc). The use of other tools of Plumed with ASE is absolutely analogous to what is explain here.
+Plumed, in the other hand, allows several actions besides of what we show here. For further description of plumed details, visit [plumed web page](http://www.plumed.org/doc). The usage of other tools of Plumed with ASE is absolutely analogous to what is explain here.
 
-This tutorial begins with a brief explanation of [basic ideas about metadynamics](#theory). Then, we use a toy model to show how to compute collective variables on-the-fly in an [MD simulation](#planar-7-atoms-cluster). We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement [Well-Tempered Metadynamics](#well-tempered-metadynamics-simulation) to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are [publicly available](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/tree/main/files).
+This tutorial begins with a brief explanation of [basic ideas about metadynamics](#theory). Then, we use a toy model to show how to compute collective variables on-the-fly in an [MD simulation](#planar-7-atoms-cluster). We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement [Well-Tempered Metadynamics](#well-tempered-metadynamics-simulation) to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are [publicly available](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files).
 
 **CONTENT**
 
+- [ASE-PLUMED Calculator Tutorial](#ase-plumed-calculator-tutorial)
+    - [Tutorial about the calculator presented in the paper: https://doi.org/10.1063/5.0082332](#tutorial-about-the-calculator-presented-in-the-paper-httpsdoiorg10106350082332)
 - [Theory](#theory)
   - [Collective Variables](#collective-variables)
   - [Metadynamics](#metadynamics)
@@ -45,7 +47,7 @@ flowchart TB;
   click A "INSTRUCTIONS.md" "Introduction to the tutorial";
   click B "install.md" "Install py-plumed and ASE"
   click C "theory.md" "Theory necessary to follow completely this tutorial"
-  click D "defsystem.md" "Toy model showing the use of PLUMED in ASE"
+  click D "defsystem.md" "Toy model showing the usage of PLUMED in ASE"
   click E "MD.md" "Unbiased simulation computing CVs on the fly and by postprocessing"
   click F "MTD.md" "Addition of the bias using metadynamics"
   click G "restart.md" "How to restart a simulation in ASE"
@@ -54,7 +56,7 @@ flowchart TB;
 
 | **WARNING** |
 | ---         |
-| In order to complete this tutorial you have to install [py-plumed](https://www.plumed.org/doc-v2.8/user-doc/html/_installation.html#installingpython) and version of [ASE](https://gitlab.com/ase/ase) >= 3.23.0. For further details, check [installation instructions](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/tree/main/install.md).|
+| In order to complete this tutorial you have to install [py-plumed](https://www.plumed.org/doc-v2.8/user-doc/html/_installation.html#installingpython) and version of [ASE](https://gitlab.com/ase/ase) >= 3.23.0. For further details, check [installation instructions](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/install.md).|
 
 # Theory
 
@@ -246,7 +248,7 @@ sampling method as an alternative to observe transitions to other configurations
 In this tutorial, we implement Well-Tempered Metadynamics.
  
  **NOTE**  
-If you want to use a set up from a typical plumed file ([`plumedLJ.dat`](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/tree/main/filesplumedLJ.dat), for this example) to set up the plumed actions, you can replace the `setup` variable assignament in the previous code for:
+If you want to use a set up from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) to set up the plumed actions, you can replace the `setup` variable assignament in the previous code for:
 
 ```python
 setup = open("plumedLJ.dat", "r").read().splitlines()

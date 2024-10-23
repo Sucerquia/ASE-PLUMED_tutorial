@@ -1,13 +1,14 @@
-from ase import units
-from ase.io import read
-from ase.md.langevin import Langevin
-from ase.constraints import FixedPlane
-from ase.calculators.plumed import Plumed
 from ase.calculators.lj import LennardJones
+from ase.calculators.plumed import Plumed
+from ase.constraints import FixedPlane
+from ase.md.langevin import Langevin
+from ase.io import read
+from ase import units
+
 
 timestep = 0.005
-ps = 1000 * units.fs
 
+ps = 1000 * units.fs
 setup = [f"UNITS LENGTH=A TIME={1/ps} ENERGY={units.mol/units.kJ}",
          "c1: COORDINATIONNUMBER SPECIES=1-7 MOMENTS=2-3" +
          " SWITCH={RATIONAL R_0=1.5 NN=8 MM=16}",
@@ -15,6 +16,7 @@ setup = [f"UNITS LENGTH=A TIME={1/ps} ENERGY={units.mol/units.kJ}",
          "FLUSH STRIDE=1000"]
 
 atoms = read('isomer.xyz')
+# Constraint to keep the system in a plane
 cons = [FixedPlane(i, [0, 0, 1]) for i in range(7)]
 atoms.set_constraint(cons)
 atoms.set_masses([1, 1, 1, 1, 1, 1, 1])
