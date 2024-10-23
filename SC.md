@@ -1,24 +1,24 @@
 # Ab-initio: Small Silver Cluster
 
-In the same way as we did our analysis of the toy model, we can also obtain the free energy profile of a real system but using an Ab-initio calculator. In this part of the tutorial, we show how to find the free energy surface of an Ag-6 cluster presented in the paper [D. Sucerquia et. al., JCP, 2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster is the smallest silver cluster where entropic effects at room temperature boost the non-planar isomer probability to a competing state.
+In the same way as we did our analysis of the toy model, we can also obtain the free energy profile of a real system but using an Ab-initio calculator. In this part of the tutorial, we show how to find the free energy surface of an Ag-6 cluster presented in the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster is the smallest silver cluster where entropic effects at room temperature boost the non-planar isomer probability to a competing state.
 
 ## Collective variables
 
 To obtain a proper exploration of the different states of the silver cluster, we can use the coordination number (C) and the radius of gyration (R) as collective variables. This Collective variables are defined as
 
-$$
+```math
 C= \sum_{i=1}^{N_a} \sum_{j\ne i}\frac{1-(r_{ij}/d)^8}{1-(r_{ij}/d)^{16}},
-$$
+```
 
 and
 
-$$
+```math
 R= \left(\frac{\sum_i^N |{\color{black}{\bf r}}_i - {\color{black}{\bf r}}_{CM}|^2}{N_a}\right)^{1/2},
-$$
+```
 
 where $r_i$ is the position of atom $i$, $r_{CM}$ is the center of mass of the cluster and $N_a$ is the number of atoms of the cluster. This CV gives information about how disperse the system is with respect to the center of mass. $C$ and $R$ enable extracting information about the shape of the cluster and permit differentiating the free-energy minima found by DFT optimization, which are expected to be metastable states in the free-energy landscape.
 
-By performing short WT-MTD along these CVs, we noticed that there were isomers with broken bonds or that formed linear clusters, which are not of interest in the isomerisation process and would require prohibitively larger computational cells. Therefore, there are regions of the space that are thermodynamically irrelevant. Considering how expensive are Ab-initio calculations, we try to avoid enhancing the exploration toward these regions. Then we created a new set of CVs (CV1 and CV2) that are a rotation of C and R, over which we could easily apply a wall. The rotated CVs are defined as
+By performing short WT-MTD along these CVs, we noticed that there were isomers with broken bonds or that formed linear clusters, which are not of interest in the isomerisation process. Therefore, there are regions of the space that are thermodynamically irrelevant. Considering how expensive are Ab-initio calculations, we try to avoid enhancing the exploration toward these regions. Then we created a new set of CVs (CV1 and CV2) that are a rotation of C and R, over which we could easily apply a constraint as we did for the previous example. The rotated CVs are defined as
  
 $$
 CV 1 = 0.99715 C − 0.07534Å^{−1} R
@@ -34,7 +34,11 @@ Using this CV setup for WT-MTD, we added walls using repulsive semi-harmonic pot
 
 ## Running the Simulation
 
-You need to create a file called plumed.dat containing the lines,
+| **WARNING** |
+| ---         |
+| To obtain the proper reconstruction of the free energy surface, Metadynamics has to run for long trajectories until reaching convergence. This could take many hours to be completed. This part of the tutorial is just an example of the capabilities of the ASE-PLUMED calculator. The next code shows how to run a 5 steps simulation. For longer simulations, you have to change the argument of the function `run` in the last line, and you might need to use High Performance Computing.|
+
+You need to create a file called [`plumedSC.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,
 
 ```plumed
 UNITS LENGTH=A TIME=0.0101805 ENERGY=96.4853329
@@ -48,7 +52,7 @@ METAD ARG=crot,rrot SIGMA=0.3,0.03 HEIGHT=0.2 PACE=100 BIASFACTOR=100 FILE=HILLS
 FLUSH STRIDE=100
 ```
 
-Once this file is created, we can start the simulation from one of the DFT-optimized configurations, here called [isomer1.xyz](). Note that for this part of the tutorial you need to se up GPAW, that is a DFT code. You can choose the QM code of your preference. Also, notice that this could take many hours to be completed. This part is just an example, but a real simulation should be run in parallel with a suitable setup.
+Once this file is created, we can start the simulation from one of the DFT-optimized configurations, here called [isomerSC.xyz](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/isomerSC.xyz). Note that for this part of the tutorial you need to set up [GPAW](https://gpaw.readthedocs.io/), which is a DFT code. You can choose the QM code that you prefer. This can be done as shown in the file [MTD-SC.py](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MTD-SC.py):
 
 ``` python
 from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
@@ -60,9 +64,9 @@ from ase import Atoms
 from ase import units
 
 
-pos = read("isomer1.xyz").get_positions()
+pos = read("isomerSC.xyz").get_positions()
 
-setup = open("plumed.dat", "r").read().splitlines()
+setup = open("plumedSC.dat", "r").read().splitlines()
 
 T = 100
 timestep = 5 * units.fs
@@ -101,9 +105,13 @@ atoms.calc = Plumed(GPAW(h=0.2,
 dyn = NVTBerendsen(atoms, timestep, temperature_K=T, taut=taut, fixcm=False,
                    trajectory='trajectory.traj')
 
-dyn.run(50001)
+dyn.run(5)
 ```
 
-After running this same code but changing the temperature, we obtained the free energy surfaces of Figure 1.
+After running this same code but changing the temperature and the number of time steps, you can obtain the free energy surfaces of Figure 4.
 
-<img src="/files/Ag6-FES.png"  width="500">
+<div align="center">
+   <img src="/files/Ag6-FES.png"  width="500">
+</div>
+
+**Figure 4.** Free energy surface of a Ag6 cluster at three different temperatures.
