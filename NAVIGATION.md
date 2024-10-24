@@ -34,7 +34,6 @@ flowchart TB;
   F -.-> G[Restart a simulation]
   A ==> H[Ab-initio: Small Silver Cluster]
 
-  click A
   click B "install.md" "Install py-plumed and ASE"
   click C "theory.md" "Theory necessary to follow completely this tutorial"
   click D "defsystem.md" "Toy model showing the usage of PLUMED in ASE"
