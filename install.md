@@ -4,7 +4,7 @@ In order to use PLUMED with ASE, you need to install the python version of plume
 
 ```
 # Create an environment
-conda create -name plumed-ase
+conda create --name plumed-ase
 conda activate plumed-ase
 
 # Install py-plumed

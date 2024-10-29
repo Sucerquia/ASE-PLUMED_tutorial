@@ -15,7 +15,7 @@ setup = [f"UNITS LENGTH=A TIME={1/ps} ENERGY={units.mol/units.kJ}",
          "PRINT ARG=c1.* STRIDE=100 FILE=COLVAR",
          "FLUSH STRIDE=1000"]
 
-atoms = read('isomer.xyz')
+atoms = read('isomerLJ.xyz')
 # Constraint to keep the system in a plane
 cons = [FixedPlane(i, [0, 0, 1]) for i in range(7)]
 atoms.set_constraint(cons)
@@ -28,6 +28,6 @@ atoms.calc = Plumed(calc=LennardJones(rc=2.5, r0=3.),
                     kT=0.1)
 
 dyn = Langevin(atoms, timestep, temperature_K=0.1/units.kB, friction=1,
-               fixcm=False, trajectory='UnbiasMD.xyz')
+               fixcm=False, trajectory='UnbiasMD.traj')
 
 dyn.run(100000)

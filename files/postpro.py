@@ -4,7 +4,7 @@ from ase.io import read
 from ase import units
 
 
-traj = read('UnbiasMD.xyz', index=':')
+traj = read('UnbiasMD.traj', index=':')
 
 atoms = traj[0]
 
