@@ -12,7 +12,7 @@ same state, even when we sample for a long time lapse. That is because a
 complete exploration of the configuration 
 space could take more time than the possible to simulate. Figure 2 -blue 
 dots- shows the trajectory obtained from the following unbiased 
-Molecular dynamics script [`MD.py`](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/blob/main/files/MD.py):
+Molecular dynamics script [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
 
 ```python
 from ase.calculators.lj import LennardJones
@@ -51,7 +51,7 @@ dyn.run(100000)
 ```
 
 This simulation starts from the configuration of minimum energy, whose 
-coordinates are imported from [`isomerLJ.xyz`](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/blob/main/files/isomer.xyz).
+coordinates are imported from [`isomerLJ.xyz`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/isomer.xyz).
 As you can see in Figure 2, the 
 system remains moving around that state; it does not jump to the other 
 isomers. This means we do not obtain a complete sampling of possible 
@@ -76,7 +76,7 @@ setup = open("plumedLJ.dat", "r").read().splitlines()
 If you have the trajectory of an MD simulation and you want to compute a set of 
 CVs of that trajectory, you can reconstruct the plumed files without running 
 again all the simulation. As an example, let's use the trajectory created in 
-the last code for rewriting the COLVAR file with the code [`postpro.py`](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/blob/main/files/postpro.py):
+the last code for rewriting the COLVAR file with the code [`postpro.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/postpro.py):
 
 ```python
 from ase.calculators.idealgas import IdealGas

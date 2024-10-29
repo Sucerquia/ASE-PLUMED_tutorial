@@ -49,7 +49,7 @@ METAD ARG=c1.* HEIGHT=0.05 PACE=500 SIGMA=0.1,0.1 GRID_MIN=-1.5,-1.5 GRID_MAX=2.
 ```
 
 Well-Tempered Metadynamics simulation for this case can be run using the code 
-[`MTD.py`](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/blob/main/files/MTD.py):
+[`MTD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MTD.py):
 
 ```python
 from ase.calculators.lj import LennardJones
@@ -103,7 +103,7 @@ The simplest way of using it is:
 $ plumed sum_hills --hills HILLS
 ```
 After this, Plumed creates a fes.dat file with the FES reconstructed. When the 
-FES of this example is plotted using [plotter.py](https://gitlab.com/Sucerquia/ase-plumed_tutorial/-/blob/main/files/plotter.py), it yields:
+FES of this example is plotted using [plotterFES.py](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plotterFES.py), it yields:
 
 <div align="center">
   <img src="/files/fes.png"  width="400">
