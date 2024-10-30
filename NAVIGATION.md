@@ -22,7 +22,7 @@ This tutorial begins with a brief explanation of basic ideas about metadynamics.
 
 | **WARNING** |
 | ---         |
-| In order to complete this tutorial you have to install [py-plumed](https://www.plumed.org/doc-v2.8/user-doc/html/_installation.html#installingpython) and version of [ASE](https://gitlab.com/ase/ase) >= 3.23.0. For further details, check [installation instructions](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/install.md).|
+| In order to complete this tutorial you have to install [py-plumed](https://www.plumed.org/doc-v2.8/user-doc/html/_installation.html#installingpython) and version of [ASE](https://gitlab.com/ase/ase) >= 3.23.0. For further details, check [installation instructions](install.md).|
 
 ```mermaid
 flowchart TB;
