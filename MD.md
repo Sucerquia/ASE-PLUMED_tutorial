@@ -1,18 +1,17 @@
 ## Molecular Dynamics Simulation
 
-For showing that is necessary to use an enhanced sampling method,
-let's start with a Langevin simulation without bias. In LJ dimensionless 
+Let's start with a Langevin simulation without bias. In LJ dimensionless 
 reduced units (assuming $`\epsilon`$ = 1 eV, $`\sigma`$ = 1 $`\textrm Å`$ and 
 m = 1 a.m.u), the parameters of the simulation are  $`k_\text{B}T=0.1`$, 
 friction coefficient fixed equal to 1 and a time step of 0.005.
 
-It is supposed that the system should explore all the space of configurations 
+In principle, the system should explore all the space of configurations 
 due to thermal fluctuations. However, we can see that the system remains in the 
-same state, even when we sample for a long time lapse. That is because a 
+same conformational state, even when we simulate for a long time. This happens because the systems gets trapped in a local minima, and a 
 complete exploration of the configuration 
-space could take more time than the possible to simulate. Figure 2 -blue 
+space is too computationally expensive. Figure 2 -blue 
 dots- shows the trajectory obtained from the following unbiased 
-Molecular dynamics script [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
+Molecular dynamics [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
 
 ```python
 from ase.calculators.lj import LennardJones
@@ -53,14 +52,14 @@ dyn.run(100000)
 This simulation starts from the configuration of minimum energy, whose 
 coordinates are imported from [`isomerLJ.xyz`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/isomer.xyz).
 As you can see in Figure 2, the 
-system remains moving around that state; it does not jump to the other 
-isomers. This means we do not obtain a complete sampling of possible 
-configurations as mentioned before. Then, it is necessary  to use an enhanced
-sampling method as an alternative to observe transitions to other configurations.
+system remains around that state and it does not jump to the other 
+isomers. This means that we do not obtain a complete sampling of the possible 
+configurations of the system. It is therefore necessary  to use an enhanced
+sampling method.
 In this tutorial, we implement Well-Tempered Metadynamics.
  
  **NOTE**  
-If you want to use a set up from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) to set up the plumed actions, you can replace the `setup` variable assignament in the previous code for
+If you want to use a set up from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) for the plumed actions, you can replace the `setup` variable assignament in the previous code by
 
 ```python
 setup = open("plumedLJ.dat", "r").read().splitlines()
@@ -68,12 +67,12 @@ setup = open("plumedLJ.dat", "r").read().splitlines()
 
 | **WARNING** |
 | ---         |
-| Note that in the plumed set-up, there is a line with the keyword `UNITS`, which is necessary because all parameters in the plumed set-up and output files are assumed to be in plumed internal units. Then, this line is important to mantain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the units  conversion.   |
+| Note that in the plumed set-up, there is a line with the keyword `UNITS`, which is necessary because all parameters in the plumed set-up and output files are assumed to be in plumed internal units. This line is important to mantain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the units  conversion.   |
 
 
 ### Post Processing Analysis
 
-If you have the trajectory of an MD simulation and you want to compute a set of 
+Once the trajectory of an MD simulation and you want to compute a set of 
 CVs of that trajectory, you can reconstruct the plumed files without running 
 again all the simulation. As an example, let's use the trajectory created in 
 the last code for rewriting the COLVAR file with the code [`postpro.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/postpro.py):
