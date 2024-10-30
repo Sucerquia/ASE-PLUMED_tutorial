@@ -7,9 +7,9 @@ in [ASE](https://wiki.fysik.dtu.dk/ase/).
 
 The Atomic Simulation Environment, [ASE](https://wiki.fysik.dtu.dk/ase/), is a package that allows to set up,
 run and visualize atomistic simulations. It is interfaced with some [other codes](https://wiki.fysik.dtu.dk/ase/#supported-calculators),
-which use quantum or classical methods.  We developed a PLUMED calculator to connect with all the other codes interfaced in ASE.  We note that PLUMED allows several actions besides of what we show here. For further description of plumed details, visit [plumed web page](http://www.plumed.org/doc). The usage of other tools of Plumed with ASE is analogous to what is explain here. 
+which use quantum or classical methods.  We developed a [plumed calculator](https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html) to connect PLUMED with all the other codes interfaced in ASE.  We note that PLUMED allows several actions besides of what we show in this tutorial. For further description, visit [plumed web page](http://www.plumed.org/doc). 
 
-This tutorial begins with a brief explanation of basic ideas about metadynamics. Then, we use a toy model to show how to compute collective variables on-the-fly in an MD simulation. We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement Well-Tempered Metadynamics to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are publicly available in [https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files).
+This tutorial begins with a brief explanation of the basic ideas about metadynamics. We first use a toy model to show how to compute collective variables on-the-fly in an MD simulation, and also from a previously computed MD trajectory using postprocesing. We then implement Well-Tempered Metadynamics to reconstruct the free energy surface of the toy system along a set of collective variables. All the files required to complete this tutorial are publicly available in [https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files).
 
 | **WARNING** |
 | ---         |
