@@ -5,7 +5,7 @@
 In most of cases, it is impossible to extract clear information about 
 a system of interest by monitoring the cartesian coordinates of all atoms directly, 
 even more if our system contains many atoms. Instead, it
-is possible to make the monitoring simpler by defining functions of those 
+is possible to monitor the system by defining functions of those 
 coordinates that describe the chemical properties that we are interested in. 
 Those functions are called Collective Variables (CVs) and allow biasing 
 specific degrees of freedom or analyzing how those properties evolve. Plumed 
@@ -28,7 +28,7 @@ defined as
 ```math
 V_{B}({\mathbf{s}}, t) = \sum_{t'=\tau, 2\tau,...}^{t' < t}W(\mathbf{s}, t') 
                             \hspace{0.1cm}
-                            exp\left({-\sum_i\frac{[s_i\hspace{0.1cm} - 
+                            \exp\left({-\sum_i\frac{[s_i\hspace{0.1cm} - 
                             \hspace{0.1cm}
                             s_i(t')]^2}{2\sigma_i}}\right) ~,
 ```
@@ -47,7 +47,7 @@ Metadynamics is
 (2)
 ```
 ```math
-W(\mathbf{s}, t')  = W exp\left({-\frac{\beta \hspace{0.1cm} V_B({\bf s}, 
+W(\mathbf{s}, t')  = W \exp\left({-\frac{\beta \hspace{0.1cm} V_B({\bf s}, 
                   \hspace{0.1cm}t')}{\gamma}}\right) ~,
 ```
 
