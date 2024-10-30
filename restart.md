@@ -1,10 +1,8 @@
 # Restart Note
 
-Suppose you realize it was not enough added bias when your simulation finalized. Therefore, you 
-have to restart your simulation during some more steps. For doing so, you have 
+To restart your simulation during some more steps, you have 
 to configure the atoms object in the last state of previous simulation and to 
-fix the value of steps in the plumed calculator. Taking the last code as an 
-example, this means you would have to change the initialization of the object atoms 
+fix the value of steps in the plumed calculator. This means you would have to change the initialization of the object atoms 
 as follows:
 
 ```python
