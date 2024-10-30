@@ -1,6 +1,6 @@
 # Ab-initio: Small Silver Cluster
 
-In the same way as we did our analysis of the toy model, we can also obtain the free energy profile of a real system but using an Ab-initio calculator. In this part of the tutorial, we show how to find the free energy surface of an Ag-6 cluster presented in the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster is the smallest silver cluster where entropic effects at room temperature boost the non-planar isomer probability to a competing state.
+In the same way as we did our analysis of the toy model, we can also obtain the free energy profile using an Ab-initio calculator. In this part of the tutorial, we show how to find the free energy surface of an Ag-6 cluster presented in the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster is the smallest silver cluster where entropic effects at room temperature boost the non-planar isomer probability to a competing state.
 
 ## Collective variables
 
@@ -16,9 +16,9 @@ and
 R= \left(\frac{\sum_i^N |{\color{black}{\bf r}}_i - {\color{black}{\bf r}}_{CM}|^2}{N_a}\right)^{1/2},
 ```
 
-where $r_i$ is the position of atom $i$, $r_{CM}$ is the center of mass of the cluster and $N_a$ is the number of atoms of the cluster. This CV gives information about how disperse the system is with respect to the center of mass. $C$ and $R$ enable extracting information about the shape of the cluster and permit differentiating the free-energy minima found by DFT optimization, which are expected to be metastable states in the free-energy landscape.
+where $r_i$ is the position of atom $i$, $r_{CM}$ is the center of mass of the cluster and $N_a$ is the number of atoms of the cluster. This CV gives information about how disperse the system is with respect to the center of mass. $C$ and $R$ enable extracting information about the shape of the cluster and permit differentiating the free-energy minima found by DFT optimization, which are expected to be metastable states in the free energy landscape.
 
-By performing short WT-MTD along these CVs, we noticed that there were isomers with broken bonds or that formed linear clusters, which are not of interest in the isomerisation process. Therefore, there are regions of the space that are thermodynamically irrelevant. Considering how expensive are Ab-initio calculations, we try to avoid enhancing the exploration toward these regions. Then we created a new set of CVs (CV1 and CV2) that are a rotation of C and R, over which we could easily apply a constraint as we did for the previous example. The rotated CVs are defined as
+By performing short WT-MTD along these CVs, we noticed that there were isomers with broken bonds or that formed linear clusters, which are not of interest in the isomerisation process. Therefore, there are regions of the space that are thermodynamically irrelevant. Considering how expensive are Ab-initio calculations, and to avoid enhancing the exploration toward these regions, we created a new set of CVs (CV1 and CV2) that are a rotation of C and R, over which we could easily apply a constraint as we did for the previous example. The rotated CVs are defined as
  
 $$
 CV 1 = 0.99715 C − 0.07534Å^{−1} R
@@ -36,7 +36,7 @@ Using this CV setup for WT-MTD, we added walls using repulsive semi-harmonic pot
 
 | **WARNING** |
 | ---         |
-| The aim of this tutorial is show an example of the capabilities of the ASE-PLUMED calculator, not to solve the physical problem completely. To obtain a proper reconstruction of the free energy surface, Metadynamics has to run for long trajectories until reaching convergence. This could take many hours (or even days) to be completed. The code presented here runs for 1000 time steps, which gives an estimate of the free energy surface, although real convergence cannot be guarantee yet. For more details of how we achieved convergence in this case, check the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). For longer simulations, you have to change the argument of the function `run` in the last line, and you might need to use High Performance Computing in order to complete it in a feasible time.|
+| The aim of this tutorial is show an example of the capabilities of the ASE-PLUMED calculatory. To obtain a full reconstruction of the free energy surface, metadynamics has to run for a long time until reaching convergence. This could take many hours (or even days) to be completed. The code presented here runs for 1000 time steps, which gives an estimate of the free energy surface, although real convergence cannot be guarantee yet. For more details of how we achieved convergence in this case, check the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). For longer simulations, you have to change the argument of the function `run` in the last line, and you might need to use High Performance Computing in order to complete it in a feasible time.|
 
 You need to create a file called [`plumedSC.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,
 
