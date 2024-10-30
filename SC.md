@@ -36,7 +36,7 @@ Using this CV setup for WT-MTD, we added walls using repulsive semi-harmonic pot
 
 | **WARNING** |
 | ---         |
-| To obtain the proper reconstruction of the free energy surface, Metadynamics has to run for long trajectories until reaching convergence. This could take many hours to be completed. This part of the tutorial is just an example of the capabilities of the ASE-PLUMED calculator. The next code shows how to run a 5 steps simulation. For longer simulations, you have to change the argument of the function `run` in the last line, and you might need to use High Performance Computing.|
+| To obtain the proper reconstruction of the free energy surface, Metadynamics has to run for long trajectories until reaching convergence. This could take many hours to be completed. The code presented here, run for 1000 steps, which gives an estimate of the free energy surface, although real convergence cannot be guarantee with this number of time steps. For more details of how we achieve convergence in this case, check the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). The aim of this tutorial is show an example of the capabilities of the ASE-PLUMED calculator. For longer simulations, you have to change the argument of the function `run` in the last line, and you might need to use High Performance Computing in order to complete it in a feasible time.|
 
 You need to create a file called [`plumedSC.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,
 
@@ -105,7 +105,7 @@ atoms.calc = Plumed(GPAW(h=0.2,
 dyn = NVTBerendsen(atoms, timestep, temperature_K=T, taut=taut, fixcm=False,
                    trajectory='trajectory.traj')
 
-dyn.run(5)
+dyn.run(1000)
 ```
 
 After running this same code but changing the temperature and the number of time steps, you can obtain the free energy surfaces of Figure 4.
