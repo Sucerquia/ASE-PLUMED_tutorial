@@ -18,7 +18,7 @@ all the other codes interfaced in ASE.
 
 Plumed, in the other hand, allows several actions besides of what we show here. For further description of plumed details, visit [plumed web page](http://www.plumed.org/doc). The usage of other tools of Plumed with ASE is absolutely analogous to what is explain here.
 
-This tutorial begins with a brief explanation of basic ideas about metadynamics. Then, we use a toy model to show how to compute collective variables on-the-fly in an MD simulation. We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement Well-Tempered Metadynamics to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are publicly available.
+This tutorial begins with a brief explanation of basic ideas about metadynamics. Then, we use a toy model to show how to compute collective variables on-the-fly in an MD simulation. We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement Well-Tempered Metadynamics to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are publicly available in [https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files).
 
 | **WARNING** |
 | ---         |
