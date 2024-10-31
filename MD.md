@@ -5,13 +5,13 @@ reduced units (assuming $`\epsilon`$ = 1 eV, $`\sigma`$ = 1 $`\textrm Å`$ and
 m = 1 a.m.u), the parameters of the simulation are  $`k_\text{B}T=0.1`$, 
 friction coefficient fixed equal to 1 and a time step of 0.005.
 
-In principle, the system should explore all the space of configurations 
+In principle, the system should explore all the configuration space 
 due to thermal fluctuations. However, we can see that the system remains in the 
-same conformational state, even when we simulate for a long time. This happens because the systems gets trapped in a local minimum and a 
+same conformational state, even when we simulate for a long time. This happens because the system gets trapped in a local minimum and a 
 complete exploration of the configuration 
 space is too computationally expensive. Figure 2 -blue 
 dots- shows the trajectory obtained from the following unbiased 
-Molecular dynamics [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
+Molecular Dynamics [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
 
 ```python
 from ase.calculators.lj import LennardJones
@@ -59,7 +59,7 @@ sampling method.
 In this tutorial, we implement Well-Tempered Metadynamics.
  
  **NOTE**  
-If you want to use a set up from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) for the plumed actions, you can replace the `setup` variable assignament in the previous code by
+If you want to use a setup from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) for the plumed actions, you can replace the `setup` variable assignment in the previous code by
 
 ```python
 setup = open("plumedLJ.dat", "r").read().splitlines()
@@ -67,7 +67,7 @@ setup = open("plumedLJ.dat", "r").read().splitlines()
 
 | **WARNING** |
 | ---         |
-| Note that in the plumed set-up, there is a line with the keyword `UNITS`, which is necessary because all parameters and output files are assumed to be in plumed internal units. This line is important to maintain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the unit  conversion.   |
+| Note that in the plumed setup, there is a line with the keyword `UNITS`, which is necessary because all parameters and output files are assumed to be in plumed internal units. This line is important to maintain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the unit  conversion.   |
 
 
 ### Post Processing Analysis
@@ -92,7 +92,7 @@ timestep = 0.005
 ps = 1000 * units.fs
 setup = open("plumedLJ.dat", "r").read().splitlines()
 
-# IdealGas is a calculator that consider all interactions equal to zero.
+# IdealGas is a calculator that removes all ineractions.
 calc = Plumed(calc=IdealGas(),
               input=setup,
               timestep=timestep,
@@ -103,7 +103,7 @@ calc.write_plumed_files(traj)
 ```
 
 This code, as well as the previous one, generates a file called COLVAR with 
-the value of the CVs. All plumed files begin with a header that describes the 
+the value of the CVs. All PLUMED files begin with a header that describes the 
 fields that it contains. In this case, the header looks like:
 
 ```
