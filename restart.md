@@ -1,9 +1,9 @@
 # Restart Note
 
-To restart your simulation during some more steps, you have 
-to configure the atoms object in the last state of previous simulation and to 
-fix the value of steps in the plumed calculator. This means you would have to change the initialization of the object atoms 
-as follows:
+To restart your simulation for additional steps, you have 
+to configure the atoms object in the last state of the previous simulation and to 
+set the steps value in the Plumed calculator. This means you would have to change the initialization of the `atoms` 
+object as follows:
 
 ```python
 from ase.io import read
@@ -12,7 +12,7 @@ atoms.set_positions(last_configuration.get_positions())
 atoms.set_momenta(last_configuration.get_momenta())
 ```
 
-and the definition of the calculator becomes in
+and the definition of the calculator becomes
 
 ```python
 atoms.calc = Plumed( ... , restart=True)
@@ -20,7 +20,7 @@ atoms.calc.istep = 10000
 ```
 
 where the three points must be replaced by the other arguments of the calculator.
-Alternatively, you can initialize your calculator using the next script
+Alternatively, you can initialize your calculator using the following script
 
 ```python
 from ase.calculators.plumed import restart_from_trajectory
@@ -28,7 +28,7 @@ from ase.calculators.plumed import restart_from_trajectory
 ...
 
 atoms.calc = restart_from_trajectory(prev_traj='MTD.traj',
-                                     prev_steps = 10000,
+                                     prev_steps=10000,
                                      ... )
 ```
 
