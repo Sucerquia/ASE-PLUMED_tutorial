@@ -7,7 +7,7 @@ friction coefficient fixed equal to 1 and a time step of 0.005.
 
 In principle, the system should explore all the space of configurations 
 due to thermal fluctuations. However, we can see that the system remains in the 
-same conformational state, even when we simulate for a long time. This happens because the systems gets trapped in a local minima, and a 
+same conformational state, even when we simulate for a long time. This happens because the systems gets trapped in a local minimum and a 
 complete exploration of the configuration 
 space is too computationally expensive. Figure 2 -blue 
 dots- shows the trajectory obtained from the following unbiased 
@@ -53,7 +53,7 @@ This simulation starts from the configuration of minimum energy, whose
 coordinates are imported from [`isomerLJ.xyz`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/isomer.xyz).
 As you can see in Figure 2, the 
 system remains around that state and it does not jump to the other 
-isomers. This means that we do not obtain a complete sampling of the possible 
+isomers, thereby not fully sampling all possible 
 configurations of the system. It is therefore necessary  to use an enhanced
 sampling method.
 In this tutorial, we implement Well-Tempered Metadynamics.
@@ -67,15 +67,15 @@ setup = open("plumedLJ.dat", "r").read().splitlines()
 
 | **WARNING** |
 | ---         |
-| Note that in the plumed set-up, there is a line with the keyword `UNITS`, which is necessary because all parameters in the plumed set-up and output files are assumed to be in plumed internal units. This line is important to mantain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the units  conversion.   |
+| Note that in the plumed set-up, there is a line with the keyword `UNITS`, which is necessary because all parameters and output files are assumed to be in plumed internal units. This line is important to maintain the units of all plumed parameters and outputs in ASE units. You can ignore this line if you are aware of the unit  conversion.   |
 
 
 ### Post Processing Analysis
 
-Once the trajectory of an MD simulation and you want to compute a set of 
+Once you have the trajectory of an MD simulation and you want to compute a set of 
 CVs of that trajectory, you can reconstruct the plumed files without running 
-again all the simulation. As an example, let's use the trajectory created in 
-the last code for rewriting the COLVAR file with the code [`postpro.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/postpro.py):
+again the simulation. As an example, let's use the trajectory created in 
+the last example to rewrite the COLVAR file with the code [`postpro.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/postpro.py):
 
 ```python
 from ase.calculators.idealgas import IdealGas
@@ -103,8 +103,8 @@ calc.write_plumed_files(traj)
 ```
 
 This code, as well as the previous one, generates a file called COLVAR with 
-the value of the CVs. All plumed files begin with a head that describes the 
-fields that it contains. In this case, the heading looks like:
+the value of the CVs. All plumed files begin with a header that describes the 
+fields that it contains. In this case, the header looks like:
 
 ```
 $ head -n 2 COLVAR
@@ -114,7 +114,7 @@ $ head -n 2 COLVAR
 
 As you can see, the first column corresponds to the time, the second one is the 
 second central moment (SCM) and the third column is the third central moment 
-(TCM). When we plot this trajectory in the space of this CVs (that is, the 
+(TCM). When we plot this trajectory in the space of these CVs (that is, the 
 second and third columns) we obtain this result:
 
 <div align="center">
@@ -125,10 +125,8 @@ second and third columns) we obtain this result:
 variables second and third central moment. Orange stars represent the location of
 the local minima isomers of the LJ cluster in this space.
 
-Note that the system remains confined in the same stable state. That means, for this
-case, MD is not enough for exploring all possible configurations and obtaining 
-a statistical study of the possible configurations of the system -at least in the 
-simulated time scale-. Therefore, an alternative is to use an enhanced sampling 
+Note that the system remains confined in the same stable state. Therefore, the MD simulation is too short and it is not possible to explore all configurations or to obtain
+a statistical study of the possible configurations of the system. An alternative is to use an enhanced sampling 
 method. In this case, we implement Well-Tempered Metadynamics for 
 reconstructing the Free Energy Surface (FES).
 
