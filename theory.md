@@ -2,8 +2,8 @@
 
 ## Collective Variables
 
-In most of cases, it is impossible to extract clear information about 
-a system of interest by monitoring the cartesian coordinates of all atoms directly, 
+In most of the cases, it is impossible to extract clear information about 
+a system of interest by monitoring the Cartesian coordinates of all atoms directly, 
 even more if our system contains many atoms. Instead, it
 is possible to monitor the system by defining functions of those 
 coordinates that describe the chemical properties that we are interested in. 
@@ -34,13 +34,13 @@ V_{B}({\mathbf{s}}, t) = \sum_{t'=\tau, 2\tau,...}^{t' < t}W(\mathbf{s}, t')
 ```
 
 where $`\mathbf{s}`$ is a set of collective variables, $`\sigma_i`$ is the width of the 
-Gaussian related with the i-th collective variable, and *W(s, t')* is the height 
+Gaussian related to the i-th collective variable, and *W(s, t')* is the height 
 of the Gaussian in time *t'*. In simple metadynamics, *W(s, t')* is a constant, 
-but in Well-Tempered Metadynamics, the height of the Gaussians is lower where 
-previous bias was added. This reduction of height of the new Gaussians decreases 
+but in Well-Tempered Metadynamics, the height of the Gaussians is lower where related to
+previous bias was added. This reduction in the height of the new Gaussians decreases 
 the error and avoids exploration towards high free energy states that are 
 thermodynamically irrelevant. The height in time t' for Well-Tempered 
-Metadynamics is 
+Metadynamics is
 
 <a name="hills"></a>
 ```math
@@ -86,4 +86,5 @@ conformations. Moreover, the accumulated bias converges to the free energy surfa
                                                {\gamma} F({\bf s})~.
 ```
 
+##### [&larr; Introduction](NAVIGATION.md)
 ##### [Toy model: Planar 7-Atoms Cluster &rarr;](defsystem.md)
