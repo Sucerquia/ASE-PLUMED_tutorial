@@ -1,8 +1,8 @@
 ## Molecular Dynamics Simulation
 
 Let's start with a Langevin simulation without bias. In LJ dimensionless 
-reduced units (assuming $\epsilon`$ = 1 eV, $\sigma`$ = 1 $\textrm Å`$ and 
-m = 1 a.m.u), the parameters of the simulation are  $k_\text{B}T=0.1`$, 
+reduced units (assuming $\epsilon$ = 1 eV, $\sigma$ = 1 $\textrm Å$ and 
+m = 1 a.m.u), the parameters of the simulation are  $k_\text{B}T=0.1$, 
 friction coefficient fixed equal to 1 and a time step of 0.005.
 
 In principle, the system should explore all the configuration space 
