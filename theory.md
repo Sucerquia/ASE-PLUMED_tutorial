@@ -74,12 +74,12 @@ $$
                    \frac{\partial V_B({\bf s}, t)}{\partial {\bf s}} ~,
 $$
 
-where ${\bf F}_i$ is the natural unbiased force, $R_i$ is the coordinate of the atom, and the second term 
+where $F_i$ is the natural unbiased force, $R_i$ is the coordinate of the atom, and the second term 
 is the additional force due to the added bias.
 
 Part of the power of metadynamics is that it can be used for exploring 
 conformations. Moreover, the accumulated bias converges to the free energy surface 
-($F({\bf s})$),
+( $F(s)$ ),
 
 <div align="center">
    <p>(4)</p>
