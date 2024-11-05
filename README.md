@@ -21,7 +21,6 @@ Plumed, in the other hand, allows several actions besides of what we show here. 
 This tutorial begins with a brief explanation of [basic ideas about metadynamics](#theory). Then, we use a toy model to show how to compute collective variables on-the-fly in an [MD simulation](#planar-7-atoms-cluster). We obtain again the last results, but from the trajectory using postprocesing. Finally, we implement [Well-Tempered Metadynamics](#well-tempered-metadynamics-simulation) to reconstruct the free energy surface of the toy model after a complete exploration of the configuration landscape. All the files required to complete this tutorial are [publicly available](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files).
 
 **CONTENT**
-
 - [ASE-PLUMED Calculator Tutorial](#ase-plumed-calculator-tutorial)
     - [Tutorial about the calculator presented in the paper: https://doi.org/10.1063/5.0082332](#tutorial-about-the-calculator-presented-in-the-paper-httpsdoiorg10106350082332)
 - [Theory](#theory)
@@ -33,6 +32,8 @@ This tutorial begins with a brief explanation of [basic ideas about metadynamics
   - [Well-Tempered Metadynamics Simulation](#well-tempered-metadynamics-simulation)
 - [Restart Note](#restart-note)
 - [Ab-initio: Small Silver Cluster](#ab-initio-small-silver-cluster)
+  - [Collective variables](#collective-variables-1)
+  - [Running the Simulation](#running-the-simulation)
 
 
 ```mermaid

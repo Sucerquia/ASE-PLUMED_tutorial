@@ -1,4 +1,4 @@
-# Ab-initio: Small Silver Cluster
+# Ab-initio Metadynamics: Small Silver Cluster
 
 In the same way as we analyzed the toy model, we can also obtain the free energy profile using an Ab-initio calculator. In this part of the tutorial, we show how to find the free energy surface of an Ag-6 cluster presented in the paper [D. Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster is the smallest silver cluster where entropic effects at room temperature boost the non-planar isomer probability to a competing state.
 
@@ -6,15 +6,15 @@ In the same way as we analyzed the toy model, we can also obtain the free energy
 
 To obtain a proper exploration of the different states of the silver cluster, we can use the coordination number (C) and the radius of gyration (R) as collective variables. These Collective variables are defined as
 
-```math
+$$
 C= \sum_{i=1}^{N_a} \sum_{j\ne i}\frac{1-(r_{ij}/d)^8}{1-(r_{ij}/d)^{16}},
-```
+$$
 
 and
 
-```math
+$$
 R= \left(\frac{\sum_i^N |{\color{black}{\bf r}}_i - {\color{black}{\bf r}}_{CM}|^2}{N_a}\right)^{1/2},
-```
+$$
 
 where $r_i$ is the position of atom $i$, $r_{CM}$ is the center of mass of the cluster and $N_a$ is the number of atoms of the cluster. This CV gives information about how disperse the system is with respect to the center of mass. $C$ and $R$ enable extracting information about the shape of the cluster and permit differentiating the free-energy minima found by DFT optimization, which are expected to be metastable states in the free energy landscape.
 

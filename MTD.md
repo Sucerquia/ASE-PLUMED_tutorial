@@ -5,14 +5,14 @@ The Well-Tempered Metadynamics method is an enhanced sampling method described i
 conformations. to avoid atom dissociation, we add a restraint to the system. This restriction consists of a 
 semi-harmonic potential with the form
 
-```math
+$$
 V(d_i)=\left\{
           \begin{array}{ll}
               k (d_i - r_w)^2 & \text{if }d_i>2 \\
               0               & \text{otherwise}
           \end{array}
           \right. ~,
-```
+$$
 
 where $`k`$ is a constraint, in this case being 1000; $`r_w`$ is the location of
 the constraint, that we choose to be 2 (in LJ dimensionless reduced units);

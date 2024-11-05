@@ -17,23 +17,25 @@ moments of the distribution of coordinations (orange stars in Figure 2).
 The n-th central moment, $`\mu_n`$, of the coordination number of an N-atoms
 cluster is defined as
 
-```math
+$$
 (5)
-```
-```math
+$$
+
+$$
 {\mu_n} = \frac{1}{N} \sum_{i=1}^{N} \left( {X}_{i} - 
                 \left< {X} \right> \right)^n ~,
-```
+$$
 
 where $`\left< {X} \right>`$ is the mean value of $`X_i`$, which is the
 coordination of the i-th atom,
 
-```math
+$$
 (6)
-```
-```math
+$$
+
+$$
 X_i= \sum_{i\ne j}\frac{1-(r_{ij}/d)^8}{1-(r_{ij}/d)^{16}} ~,
-```
+$$
 
 with $`r_{ij}`$ the distance between atoms $`i`$ and $`j`$, and $`d`$ a reference 
 parameter. For this example, d is fixed to 1.5 $`\sigma`$, in LJ units.
