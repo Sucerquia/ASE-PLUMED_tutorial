@@ -118,7 +118,7 @@ second central moment (SCM) and the third column is the third central moment
 second and third columns) we obtain this result:
 
 <div align="center">
-  <img src="/files/MD.png"  width="400">
+  <<img src="files/MD.png"  width="400">
 </div>
 
 **Figure 2.** Unbiased MD trajectory (blue dots) in the space of the collective

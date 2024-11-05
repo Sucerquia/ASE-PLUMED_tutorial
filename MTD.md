@@ -103,7 +103,7 @@ After this, Plumed creates a fes.dat file with the free energy surface (FES) rec
 FES of this example is plotted using [plotterFES.py](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plotterFES.py):
 
 <div align="center">
-  <img src="/files/fes.png"  width="400">
+  <<img src="files/fes.png"  width="400">
 </div>
 
 **Figure 3.** Free energy surface (LJ units) in the space of the collective

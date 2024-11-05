@@ -156,7 +156,7 @@ distinguished in a space of the CVs second (SCM) and third (TCM) central
 moments of the distribution of coordinations (orange stars in Figure 2).
 
 <div align="center">
-  <img src="/files/cluster.png"  width="500">
+  <<img src="files/cluster.png"  width="500">
 </div>
 
 **Figure 1.** Local minima isomers of the LJ cluster used in this tutotrial.
@@ -310,7 +310,7 @@ second central moment (SCM) and the third column is the third central moment
 second and third columns) we obtain this result:
 
 <div align="center">
-  <img src="/files/MD.png"  width="400">
+  <<img src="files/MD.png"  width="400">
 </div>
 
 **Figure 2.** Unbiased MD trajectory (blue dots) in the space of the collective
@@ -428,7 +428,7 @@ After this, Plumed creates a fes.dat file with the FES reconstructed. When the
 FES of this example is plotted using [plotter.py](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plotter.py), it yields:
 
 <div align="center">
-  <img src="/files/fes.png"  width="400">
+  <<img src="files/fes.png"  width="400">
 </div>
 
 **Figure 3.** Free energy surface (LJ units) in the space of the collective
@@ -588,7 +588,7 @@ dyn.run(5)
 After running this same code but changing the temperature and the number of time steps, you can obtain the free energy surfaces of Figure 4.
 
 <div align="center">
-   <img src="/files/Ag6-FES.png"  width="500">
+   <<img src="files/Ag6-FES.png"  width="500">
 </div>
 
 **Figure 4.** Free energy surface of a Ag6 cluster at three different temperatures.
