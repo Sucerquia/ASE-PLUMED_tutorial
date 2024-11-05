@@ -6,12 +6,10 @@ conformations. to avoid atom dissociation, we add a restraint to the system. Thi
 semi-harmonic potential with the form
 
 $$
-V(d_i)=\left\{
-          \begin{array}{ll}
-              k (d_i - r_w)^2 & \text{if }d_i>2 \\
-              0               & \text{otherwise}
-          \end{array}
-          \right. ~,
+V(d_i)= \begin{array}{ll}
+          k (d_i - r_w)^2 & \text{if }d_i>2 \\
+          0               & \text{otherwise}
+       \end{array} ~,
 $$
 
 where $k$ is a constraint, in this case being 1000; $r_w$ is the location of
