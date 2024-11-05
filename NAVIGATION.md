@@ -19,7 +19,8 @@ This tutorial begins with a brief explanation of the basic ideas about metadynam
 
 ```mermaid
 flowchart TB;
-  A[ASE-PLUMED tutorial] -.-> B[Install packages]
+  Z[PLUMED syntax] -.-> A[ASE-PLUMED tutorial]
+  A -.-> B[Install packages]
   A ==> C[Theory: CVs and MTD]
   A ==> D[Toy model: Planar 7-Atoms Cluster]
   D ==> E[Unbiased simulation and Postprocessing]
@@ -27,6 +28,7 @@ flowchart TB;
   F -.-> G[Restart a simulation]
   A ==> H[Ab-initio: Small Silver Cluster]
 
+  click Z "ref1" "A previous tutorial that introduces the basics of PLUMED syntax"
   click B "install.md" "Install py-plumed and ASE"
   click C "theory.md" "Theory necessary to follow completely this tutorial"
   click D "defsystem.md" "Toy model showing the usage of PLUMED in ASE"
