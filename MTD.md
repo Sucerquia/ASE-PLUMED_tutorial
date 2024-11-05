@@ -14,11 +14,11 @@ V(d_i)=\left\{
           \right. ~,
 $$
 
-where $`k`$ is a constraint, in this case being 1000; $`r_w`$ is the location of
+where $k`$ is a constraint, in this case being 1000; $r_w`$ is the location of
 the constraint, that we choose to be 2 (in LJ dimensionless reduced units);
-$`d_i`$ is the distance of each atom to the center of mass. Note that this 
+$d_i`$ is the distance of each atom to the center of mass. Note that this 
 potential does not do anything if the distance between the atom and the 
-center of mass is lower than $`r_w`$, but if it 
+center of mass is lower than $r_w`$, but if it 
 is greater this potential begins to exert a force over the atoms and to avoid dissociation. This is defined with the keyword UPPER_WALLS in 
 the plumed setup.
 
@@ -82,12 +82,12 @@ Note that Well-Tempered Metadynamics requires the value of the temperature
 according to [equation (2)](theory.md#hills) . Then, it is necessary to define the 
 kT argument of the calculator. SIGMA and PACE are the 
 standard deviation of the Gaussians and the deposition interval in terms of 
-the number of steps ($`\tau`$ in [equation (1)](theory.md#bias)), respectively. HEIGHT and 
-BIASFACTOR are the maximum height of the Gaussians (W) and the $`\gamma`$ factor 
+the number of steps ($\tau`$ in [equation (1)](theory.md#bias)), respectively. HEIGHT and 
+BIASFACTOR are the maximum height of the Gaussians (W) and the $\gamma`$ factor 
 of [equation (2)](theory.md#hills), respectively.
 
 In this case, the Lennard-Jones calculator computes the forces between atoms,
-namely, $`{\bf F}_i`$ forces in [equation (3)](theory.md#force). 
+namely, ${\bf F}_i`$ forces in [equation (3)](theory.md#force). 
 Likewise, you can use any preferred ASE calculator in place of the LJ calculator used here.
 
 When one runs a metadynamics simulation, Plumed generates an output file called HILLS 

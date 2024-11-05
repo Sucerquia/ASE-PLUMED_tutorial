@@ -14,7 +14,7 @@ moments of the distribution of coordinations (orange stars in Figure 2).
 
 **Figure 1.** Local minima isomers of the LJ cluster used in this tutorial.
 
-The n-th central moment, $`\mu_n`$, of the coordination number of an N-atoms
+The n-th central moment, $\mu_n`$, of the coordination number of an N-atoms
 cluster is defined as
 
 $$
@@ -26,7 +26,7 @@ $$
                 \left< {X} \right> \right)^n ~,
 $$
 
-where $`\left< {X} \right>`$ is the mean value of $`X_i`$, which is the
+where $\left< {X} \right>`$ is the mean value of $X_i`$, which is the
 coordination of the i-th atom,
 
 $$
@@ -37,8 +37,8 @@ $$
 X_i= \sum_{i\ne j}\frac{1-(r_{ij}/d)^8}{1-(r_{ij}/d)^{16}} ~,
 $$
 
-with $`r_{ij}`$ the distance between atoms $`i`$ and $`j`$, and $`d`$ a reference 
-parameter. For this example, d is fixed to 1.5 $`\sigma`$, in LJ units.
+with $r_{ij}`$ the distance between atoms $i`$ and $j`$, and $d`$ a reference 
+parameter. For this example, d is fixed to 1.5 $\sigma`$, in LJ units.
 
 
 ##### [&larr; Theory: CVs and MTD](theory.md)

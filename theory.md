@@ -17,7 +17,7 @@ complete explanation of CVs implemented in Plumed,
 
 [Metadynamics](https://www.nature.com/articles/s42254-020-0153-0) is an enhanced sampling method 
 that allows exploring the configuration landscape by adding cumulative bias in 
-terms of some CVs. This bias is added each $`\tau`$ time lapse and usually its 
+terms of some CVs. This bias is added each $\tau`$ time lapse and usually its 
 shape is Gaussian. In time t, the accumulated bias is
 defined as
 
@@ -34,7 +34,7 @@ V_{B}({\mathbf{s}}, t) = \sum_{t'=\tau, 2\tau,...}^{t' < t}W(\mathbf{s}, t')
                             s_i(t')]^2}{2\sigma_i}}\right) ~,
 $$
 
-where $`\mathbf{s}`$ is a set of collective variables, $`\sigma_i`$ is the width of the 
+where $\mathbf{s}`$ is a set of collective variables, $\sigma_i`$ is the width of the 
 Gaussian related to the i-th collective variable, and *W(s, t')* is the height 
 of the Gaussian in time *t'*. In simple metadynamics, *W(s, t')* is a constant, 
 but in Well-Tempered Metadynamics, the height of the Gaussians is lower where
@@ -53,12 +53,12 @@ W(\mathbf{s}, t')  = W \exp\left({-\frac{\beta \hspace{0.1cm} V_B({\bf s},
                   \hspace{0.1cm}t')}{\gamma}}\right) ~,
 $$
 
-with $`W`$ the maximum height of the Gaussians, $`\beta`$ the inverse of
-the thermal energy ($`1/k_BT`$) and $`\gamma`$ a bias factor greater than
+with $W`$ the maximum height of the Gaussians, $\beta`$ the inverse of
+the thermal energy ($1/k_BT`$) and $\gamma`$ a bias factor greater than
 one that regulates how fast the height of the bias decreases: the higher the 
 bias factor, the slower the heights decrease. Note that when 
-$`\gamma`$ approaches infinity, this equation becomes constant and simple 
-metadynamics is recovered. In contrast, when $`\gamma`$ approaches zero, no bias is
+$\gamma`$ approaches infinity, this equation becomes constant and simple 
+metadynamics is recovered. In contrast, when $\gamma`$ approaches zero, no bias is
 added, which is the case of Molecular Dynamics.
 
 The addition of the bias potential produces an extra force in each atom, such that
@@ -74,12 +74,12 @@ $$
                    \frac{\partial V_B({\bf s}, t)}{\partial {\bf s}} ~,
 $$
 
-where $`{\bf F}_i`$ is the natural unbiased force, $`R_i`$ is the coordinate of the atom, and the second term 
+where ${\bf F}_i`$ is the natural unbiased force, $R_i`$ is the coordinate of the atom, and the second term 
 is the additional force due to the added bias.
 
 Part of the power of metadynamics is that it can be used for exploring 
 conformations. Moreover, the accumulated bias converges to the free energy surface 
-($`F({\bf s})`$),
+($F({\bf s})`$),
 
 $$
 (4)

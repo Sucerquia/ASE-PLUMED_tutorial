@@ -79,7 +79,7 @@ complete explanation of CVs implemented in Plumed,
 
 [Metadynamics](https://www.nature.com/articles/s42254-020-0153-0) is an enhanced sampling method 
 that allows exploring the configuration landscape by adding cumulative bias in 
-terms of some CVs. This bias is added each $`\tau`$ time lapse and usually its 
+terms of some CVs. This bias is added each $\tau$ time lapse and usually its 
 shape is Gaussian. In time t, the accumulated bias is
 defined as
 
@@ -95,7 +95,7 @@ V_{B}({\mathbf{s}}, t) = \sum_{t'=\tau, 2\tau,...}^{t' < t}W(\mathbf{s}, t')
                             s_i(t')]^2}{2\sigma_i}}\right) ~,
 ```
 
-where $`\mathbf{s}`$ is a set of collective variables, $`\sigma_i`$ is the width of the 
+where $\mathbf{s}$ is a set of collective variables, $\sigma_i$ is the width of the 
 Gaussian related with the i-th collective variable, and *W(s, t')* is the height 
 of the Gaussian in time *t'*. In simple metadynamics, *W(s, t')* is a constant, 
 but in Well-Tempered Metadynamics, the height of the Gaussians is lower where 
@@ -113,12 +113,12 @@ W(\mathbf{s}, t')  = W exp\left({-\frac{\beta \hspace{0.1cm} V_B({\bf s},
                   \hspace{0.1cm}t')}{\gamma}}\right) ~,
 ```
 
-with $`W`$ the maximum height of the Gaussians, $`\beta`$ the inverse of
-the thermal energy ($`1/k_BT`$) and $`\gamma`$ a bias factor greater than
+with $W$ the maximum height of the Gaussians, $\beta$ the inverse of
+the thermal energy ($1/k_BT$) and $\gamma$ a bias factor greater than
 one that regulates how fast the height of the bias decreases: the higher the 
 bias factor, the slower is the decreasing of the heights. Note that when 
-$`\gamma`$ approaches infinity, this equation becomes constant and simple 
-metadynamics is recovered. On contrast, when $`\gamma`$ approaches zero, no bias is
+$\gamma$ approaches infinity, this equation becomes constant and simple 
+metadynamics is recovered. On contrast, when $\gamma$ approaches zero, no bias is
 added, which is the case of Molecular Dynamics.
 
 The addition of the bias potential produces an extra force in each atom, such that
@@ -133,12 +133,12 @@ the resultant force for the i-th atom is
                    \frac{\partial V_B({\bf s}, t)}{\partial {\bf s}} ~,
 ```
 
-where $`{\bf F}_i`$ is the natural unbiased force, $`R_i`$ is the coordinate of the atom, and the second term 
+where ${\bf F}_i$ is the natural unbiased force, $R_i$ is the coordinate of the atom, and the second term 
 is the additional force due to the added bias.
 
 Part of the power of metadynamics is that it can be used for exploring 
 conformations. Moreover, the accumulated bias converges to the free energy surface 
-($`F({\bf s})`$),
+($F({\bf s})$),
 
 ```math
 (4)
@@ -163,7 +163,7 @@ moments of the distribution of coordinations (orange stars in Figure 2).
 
 **Figure 1.** Local minima isomers of the LJ cluster used in this tutotrial.
 
-The n-th central moment, $`\mu_n`$, of the coordination number of an N-atoms
+The n-th central moment, $\mu_n$, of the coordination number of an N-atoms
 cluster is defined as
 
 ```math
@@ -174,7 +174,7 @@ cluster is defined as
                 \left< {X} \right> \right)^n ~,
 ```
 
-where $`\left< {X} \right>`$ is the mean value of $`X_i`$, which is the
+where $\left< {X} \right>$ is the mean value of $X_i$, which is the
 coordination of the i-th atom,
 
 ```math
@@ -184,15 +184,15 @@ coordination of the i-th atom,
 X_i= \sum_{i\ne j}\frac{1-(r_{ij}/d)^8}{1-(r_{ij}/d)^{16}} ~,
 ```
 
-with $`r_{ij}`$ the distance between atoms $`i`$ and $`j`$, and $`d`$ a reference 
-parameter. For this example, d is fixed to 1.5 $`\sigma`$, in LJ units.
+with $r_{ij}$ the distance between atoms $i$ and $j$, and $d$ a reference 
+parameter. For this example, d is fixed to 1.5 $\sigma$, in LJ units.
 
 ## Molecular Dynamics Simulation
 
 For showing that is necessary to use an enhanced sampling method,
 let's start with a Langevin simulation without bias. In LJ dimensionless 
-reduced units (assuming $`\epsilon`$ = 1 eV, $`\sigma`$ = 1 $`\textrm Å`$ and 
-m = 1 a.m.u), the parameters of the simulation are  $`k_\text{B}T=0.1`$, 
+reduced units (assuming $\epsilon$ = 1 eV, $\sigma$ = 1 $\textrm Å$ and 
+m = 1 a.m.u), the parameters of the simulation are  $k_\text{B}T=0.1$, 
 friction coefficient fixed equal to 1 and a time step of 0.005.
 
 It is supposed that the system should explore all the space of configurations 
@@ -343,11 +343,11 @@ V(d_i)=\left\{
           \right. ~,
 ```
 
-where $`k`$ is a constraint, in this case being 1000; $`r_w`$ is the location of
+where $k$ is a constraint, in this case being 1000; $r_w$ is the location of
 the constraint, that we choose to be 2 (in LJ dimensionless reduced units);
-$`d_i`$ is the distance of each atom to the center of mass. Note that this 
+$d_i$ is the distance of each atom to the center of mass. Note that this 
 potential does not do anything whereas the distance between the atom and the 
-center of mass is lower than $`r_w`$, but if it 
+center of mass is lower than $r_w$, but if it 
 is greater (trying to escape), this potential begins to work and send it back 
 to be close the other atoms. This is defined with the keyword UPPER_WALLS in 
 the plumed set up.
@@ -409,12 +409,12 @@ Note that Well-Tempered Metadynamics requires the value of the temperature
 according to [equation (2)](#hills) . Then, it is necessary to define the 
 kT argument of the calculator. SIGMA and PACE are the 
 standard deviation of the Gaussians and the deposition interval in terms of 
-number of steps ($`\tau`$ in [equation (1)](#bias)). HEIGHT and 
-BIASFACTOR are the maximum height of the Gaussians (W) and the $`\gamma`$ factor 
+number of steps ($\tau$ in [equation (1)](#bias)). HEIGHT and 
+BIASFACTOR are the maximum height of the Gaussians (W) and the $\gamma$ factor 
 of [equation (2)](#hills), respectively.
 
 In this case, the Lennard-Jones calculator computes the forces between atoms,
-namely, $`{\bf F}_i`$ forces in [equation (3)](#force). 
+namely, ${\bf F}_i$ forces in [equation (3)](#force). 
 Likewise, you could use your preferred ASE calculator instead of the LJ calculator used here.
 
 When one runs a metadynamics simulation, Plumed generates a file called HILLS 
