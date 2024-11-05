@@ -22,9 +22,9 @@ shape is Gaussian. In time t, the accumulated bias is
 defined as
 
 <a name="bias"></a>
-$$
-(1)
-$$
+<div align="center">
+   <p>(1)</p>
+</div>
 
 $$
 V_{B}({\mathbf{s}}, t) = \sum_{t'=\tau, 2\tau,...}^{t' < t}W(\mathbf{s}, t') 
@@ -44,9 +44,9 @@ thermodynamically irrelevant. The height in time t' for Well-Tempered
 Metadynamics is
 
 <a name="hills"></a>
-$$
-(2)
-$$
+<div align="center">
+   <p>(2)</p>
+</div>
 
 $$
 W(\mathbf{s}, t')  = W \exp\left({-\frac{\beta \hspace{0.1cm} V_B({\bf s}, 
@@ -65,9 +65,9 @@ The addition of the bias potential produces an extra force in each atom, such th
 the resultant force for the i-th atom is
 
 <a name="force"></a>
-$$
-(3)
-$$
+<div align="center">
+   <p>(3)</p>
+</div>
 
 $$
 {\bf F^B}_i = {\bf F}_i - \frac{\partial {\bf s}}{\partial {\bf R}_i} 
@@ -81,9 +81,9 @@ Part of the power of metadynamics is that it can be used for exploring
 conformations. Moreover, the accumulated bias converges to the free energy surface 
 ($F({\bf s})`$),
 
-$$
-(4)
-$$
+<div align="center">
+   <p>(4)</p>
+</div>
 
 $$
 \lim_{t\rightarrow \infty} V_B ({\bf{s}}, t) = -\frac{(\gamma -1)}
