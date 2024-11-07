@@ -9,7 +9,7 @@ distinguished in a space of the CVs second (SCM) and third (TCM) central
 moments of the distribution of coordinations (orange stars in Figure 2).
 
 <div align="center">
-  <<<img src="./files/cluster.png"  width="500">
+  <img src="./files/cluster.png"  width="500">
 </div>
 
 **Figure 1.** Local minima isomers of the LJ cluster used in this tutorial.

@@ -111,7 +111,7 @@ dyn.run(1000)
 After running this same code but changing the temperature and the number of time steps, you can obtain the free energy surfaces shown in Figure 4. 
 
 <div align="center">
-   <<<img src="./files/Ag6-FES.png"  width="500">
+   <img src="./files/Ag6-FES.png"  width="500">
 </div>
 
 **Figure 4.** Free energy surface of a Ag6 cluster at three different temperatures.
