@@ -2,8 +2,8 @@
 # Planar 7-Atoms Cluster
 
 Let's consider a simple system formed by seven atoms with Lennard-Jones (LJ) 
-interactions in a planar space. This simple model is presented in the 
-[Plumed Masterclass 21.2](https://www.plumed.org/doc-v2.7/user-doc/html/masterclass-21-2.html#masterclass-21-2-ex-9).
+interactions in a planar space. This simple model is presented in the exercise 9 of the
+[Plumed Masterclass 21.2](https://www.plumed-tutorials.org/lessons/21/002/data/NAVIGATION.html).
 This LJ cluster has several stable isomers (Figure 1), which can be 
 distinguished in a space of the CVs second (SCM) and third (TCM) central 
 moments of the distribution of coordinations (orange stars in Figure 2).
