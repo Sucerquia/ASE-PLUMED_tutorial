@@ -25,11 +25,7 @@ from ase import units
 timestep = 0.005
 
 ps = 1000 * units.fs
-setup = [f"UNITS LENGTH=A TIME={1/ps} ENERGY={units.mol/units.kJ}",
-         "c1: COORDINATIONNUMBER SPECIES=1-7 MOMENTS=2-3" +
-         " SWITCH={RATIONAL R_0=1.5 NN=8 MM=16}",
-         "PRINT ARG=c1.* STRIDE=100 FILE=COLVAR",
-         "FLUSH STRIDE=1000"]
+setup = open("plumedLJ.dat", "r").read().splitlines()
 
 atoms = read('isomer.xyz')
 # Constraint to keep the system in a plane
@@ -49,6 +45,15 @@ dyn = Langevin(atoms, timestep, temperature_K=0.1/units.kB, friction=1,
 dyn.run(100000)
 ```
 
+Where [`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat) contains the next information:
+
+```plumed
+UNITS LENGTH=A TIME=0.0101805 ENERGY=96.4853329
+c1: COORDINATIONNUMBER SPECIES=1-7 MOMENTS=2-3 SWITCH={RATIONAL R_0=1.5 NN=8 MM=16}
+PRINT ARG=c1.* STRIDE=100 FILE=COLVAR
+FLUSH STRIDE=1000
+```
+
 This simulation starts from the configuration of minimum energy, whose 
 coordinates are imported from [`isomerLJ.xyz`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/isomer.xyz).
 As you can see in Figure 2, the 
@@ -57,13 +62,7 @@ isomers, thereby not fully sampling all possible
 configurations of the system. It is therefore necessary  to use an enhanced
 sampling method.
 In this tutorial, we implement Well-Tempered Metadynamics.
- 
- **NOTE**  
-If you want to use a setup from a typical plumed file ([`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat), for this example) for the plumed actions, you can replace the `setup` variable assignment in the previous code by
 
-```python
-setup = open("plumedLJ.dat", "r").read().splitlines()
-```
 
 | **WARNING** |
 | ---         |
