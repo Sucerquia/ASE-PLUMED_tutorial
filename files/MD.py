@@ -21,7 +21,7 @@ cons = [FixedPlane(i, [0, 0, 1]) for i in range(7)]
 atoms.set_constraint(cons)
 atoms.set_masses([1, 1, 1, 1, 1, 1, 1])
 
-atoms.calc = Plumed(calc=LennardJones(rc=2.5, r0=3.),
+atoms.calc = Plumed(calc=LennardJones(rc=3, r0=2.5, smooth=True),
                     input=setup,
                     timestep=timestep,
                     atoms=atoms,

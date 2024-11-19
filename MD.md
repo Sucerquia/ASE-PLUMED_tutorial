@@ -9,7 +9,7 @@ In principle, the system should explore all the configuration space
 due to thermal fluctuations. However, we can see that the system remains in the 
 same conformational state, even when we simulate for a long time. This happens because the system gets trapped in a local minimum and a 
 complete exploration of the configuration 
-space is too computationally expensive. Figure 2 -blue 
+space is too expensive computationally. Figure 2 -blue 
 dots- shows the trajectory obtained from the following unbiased 
 Molecular Dynamics [`MD.py`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/MD.py):
 
@@ -33,7 +33,7 @@ cons = [FixedPlane(i, [0, 0, 1]) for i in range(7)]
 atoms.set_constraint(cons)
 atoms.set_masses([1, 1, 1, 1, 1, 1, 1])
 
-atoms.calc = Plumed(calc=LennardJones(rc=2.5, r0=3.),
+atoms.calc = Plumed(calc=LennardJones(rc=3., r0=2.5, smooth=True),
                     input=setup,
                     timestep=timestep,
                     atoms=atoms,
@@ -45,7 +45,8 @@ dyn = Langevin(atoms, timestep, temperature_K=0.1/units.kB, friction=1,
 dyn.run(100000)
 ```
 
-Where [`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat) contains the next information:
+Where [`plumedLJ.dat`](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files/plumedLJ.dat)
+contains the next information:
 
 ```plumed
 UNITS LENGTH=A TIME=0.0101805 ENERGY=96.4853329
